@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: higherOrLower
+  name: higher-or-lower
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/AlexSitu01/vps-0-infra2.git
     targetRevision: HEAD
-    path: services/higherOrLower
+    path: services/higher-or-lower
   destination:
     server: https://kubernetes.default.svc
-    namespace: higherOrLower
+    namespace: higher-or-lower
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
