@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/jasonly027/vps0-infra.git
+    targetRevision: HEAD
+    path: infra/traefik
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
