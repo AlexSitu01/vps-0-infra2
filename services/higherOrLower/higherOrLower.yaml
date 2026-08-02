@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: higherOrLower
+  labels:
+    app: higherOrLower
+spec:
+  selector:
+    matchLabels:
+      app: higherOrLower
+  template:
+    metadata:
+      labels:
+        app: higherOrLower
+    spec:
+      containers:
+        - name: higherOrLower
+          image: alexsitu1/hol:latest
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: higherOrLower
+spec:
+  selector:
+    app: higherOrLower
+  ports:
+    - port: 80
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: higherOrLower
+spec:
+  parentRefs:
+    - name: main-gateway
+      namespace: kube-system
+      sectionName: https
+      kind: Gateway
+
+  hostnames:
+    - games.alexsitu.cc
+
+  rules:
+    - backendRefs:
+        - name: higherOrLower
+          port: 3000
