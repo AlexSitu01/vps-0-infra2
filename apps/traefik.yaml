@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/AlexSitu01/vps0-infra.git
+    repoURL: https://github.com/AlexSitu01/vps-0-infra2.git
     targetRevision: HEAD
     path: infra/traefik
   destination:
