@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/AlexSitu01/vps-0-infra2.git
     targetRevision: HEAD
-    path: services/higher-or-lower
+    path: services/higherOrLower
   destination:
     server: https://kubernetes.default.svc
     namespace: higher-or-lower
