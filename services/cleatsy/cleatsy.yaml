@@ -22,7 +22,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: cleatsy
-          image: alexsitu1/cleatsy:1.0
+          image: alexsitu1/cleatsy:latest
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
