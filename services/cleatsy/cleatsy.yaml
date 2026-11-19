@@ -80,7 +80,7 @@ spec:
       sectionName: https
       kind: Gateway
   hostnames:
-    - cleatsy.alexsitu.cc
+    - cleatsy.us
   rules:
     - backendRefs:
         - name: cleatsy
